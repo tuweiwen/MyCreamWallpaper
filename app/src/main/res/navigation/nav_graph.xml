@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_navi_home">
+
+    <fragment
+        android:id="@+id/main_navi_home"
+        android:name="com.example.mycreamwallpaper.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_main_navi_home_to_main_navi_discover"
+            app:destination="@id/main_navi_discover" />
+        <action
+            android:id="@+id/action_main_navi_home_to_main_navi_widget"
+            app:destination="@id/main_navi_widget" />
+        <action
+            android:id="@+id/action_main_navi_home_to_main_navi_my"
+            app:destination="@id/main_navi_my" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_navi_discover"
+        android:name="com.example.mycreamwallpaper.DiscoverFragment"
+        android:label="fragment_discover"
+        tools:layout="@layout/fragment_discover" />
+    <fragment
+        android:id="@+id/main_navi_widget"
+        android:name="com.example.mycreamwallpaper.WidgetFragment"
+        android:label="fragment_widget"
+        tools:layout="@layout/fragment_widget" />
+    <fragment
+        android:id="@+id/main_navi_my"
+        android:name="com.example.mycreamwallpaper.MyFragment"
+        android:label="fragment_my"
+        tools:layout="@layout/fragment_my" />
+
+</navigation>
