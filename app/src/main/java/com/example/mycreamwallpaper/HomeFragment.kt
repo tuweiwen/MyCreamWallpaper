@@ -1,10 +1,15 @@
 package com.example.mycreamwallpaper
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,12 +26,15 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var picList: ArrayList<Pic>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        picList = arrayListOf()
     }
 
     override fun onCreateView(
@@ -35,6 +43,14 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val recyclerView: RecyclerView = requireView().findViewById(R.id.frag_home_rv)
+        recyclerView.adapter = HomeRvAdapter(picList)
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
     }
 
     companion object {

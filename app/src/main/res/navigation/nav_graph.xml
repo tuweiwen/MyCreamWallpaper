@@ -12,13 +12,16 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_main_navi_home_to_main_navi_discover"
-            app:destination="@id/main_navi_discover" />
+            app:destination="@id/main_navi_discover"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_main_navi_home_to_main_navi_widget"
-            app:destination="@id/main_navi_widget" />
+            app:destination="@id/main_navi_widget"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_main_navi_home_to_main_navi_my"
-            app:destination="@id/main_navi_my" />
+            app:destination="@id/main_navi_my"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/main_navi_discover"
