@@ -8,6 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import java.sql.Time
+import kotlin.random.Random
 
 class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
@@ -22,7 +24,8 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
     }
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        val wallpaperPic: ImageView = view.findViewById(R.id.wallpaper_home_rv_item)
+        val wallpaperContent: TextView = view.findViewById(R.id.wallpaper_home_rv_item_content)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
@@ -73,7 +76,14 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
                 }
         }
         else -> {
-
+            val newHolder = holder as ItemViewHolder
+//                newHolder.wallpaperPic.setImageResource()
+            val sb: StringBuilder = StringBuilder()
+            for (i in 0..(1..5).random()) {
+                sb.append("it's wallpaper content.")
+            }
+            newHolder.wallpaperPic.layoutParams.height = (500..800).random()
+            newHolder.wallpaperContent.text = sb.toString()
         }
     }
 

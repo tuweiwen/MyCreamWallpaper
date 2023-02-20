@@ -1,15 +1,17 @@
 package com.example.mycreamwallpaper
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
+import android.view.WindowManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +37,9 @@ class HomeFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
         picList = arrayListOf()
+        picList.let { it ->
+            for(i in 0..(10..20).random()) it += Pic()
+        }
     }
 
     override fun onCreateView(
@@ -49,8 +54,18 @@ class HomeFragment : Fragment() {
         super.onStart()
 
         val recyclerView: RecyclerView = requireView().findViewById(R.id.frag_home_rv)
+        val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.frag_home_swipeRefresh)
         recyclerView.adapter = HomeRvAdapter(picList)
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+//        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        var col = (getScreenParam(0) / 200)
+        if (col > 4) col = 4
+        recyclerView.layoutManager = StaggeredGridLayoutManager(col, StaggeredGridLayoutManager.VERTICAL)
+
+        swipeRefreshLayout.setOnRefreshListener {
+            if (swipeRefreshLayout.isRefreshing) {
+                swipeRefreshLayout.isRefreshing = false
+            }
+        }
     }
 
     companion object {
@@ -72,4 +87,22 @@ class HomeFragment : Fragment() {
                 }
             }
     }
+
+    fun getScreenParam(type: Int): Int {
+        val wm = requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val dm = DisplayMetrics()
+        wm.defaultDisplay.getMetrics(dm)
+        val width = dm.widthPixels // 屏幕宽度（像素）
+        val height = dm.heightPixels // 屏幕高度（像素）
+        val density = dm.density // 屏幕密度（0.75 / 1.0 / 1.5）
+        val screenWidth = (width / density).toInt() // 屏幕宽度(dp)
+        val screenHeight = (height / density).toInt() // 屏幕高度(dp)
+//        Log.d("HomeFragment", "onCreateView: screenWidth = $screenWidth")
+        when (type) {
+            0 -> return screenWidth
+            1 -> return screenHeight
+            else -> return 0
+        }
+    }
+
 }
