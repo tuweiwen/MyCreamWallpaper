@@ -1,4 +1,4 @@
-package com.example.mycreamwallpaper
+package com.example.mycreamwallpaper.main.fragments
 
 import androidx.navigation.fragment.NavHostFragment
 

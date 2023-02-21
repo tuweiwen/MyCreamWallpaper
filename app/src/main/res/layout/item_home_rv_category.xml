@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="3dp">
     <ImageView
-        android:id="@+id/cate_pic"
+        android:id="@+id/cate_pic_home_rv_item"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginLeft="20dp"
@@ -17,7 +17,7 @@
         tools:src="@mipmap/widget" />
 
     <TextView
-        android:id="@+id/cate_name"
+        android:id="@+id/cate_name_home_rv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"

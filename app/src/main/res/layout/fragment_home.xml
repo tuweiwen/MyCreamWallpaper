@@ -18,7 +18,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
+    tools:context=".main.fragments.HomeFragment"
     android:layout_gravity="center">
 
     <ImageView
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/frag_home_search"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_margin="5dp"

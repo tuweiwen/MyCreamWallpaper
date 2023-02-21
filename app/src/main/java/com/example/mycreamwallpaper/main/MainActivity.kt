@@ -1,4 +1,4 @@
-package com.example.mycreamwallpaper
+package com.example.mycreamwallpaper.main
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
