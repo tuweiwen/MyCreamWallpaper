@@ -5,14 +5,14 @@
     android:id="@+id/item_home_rv_cate"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp">
+    android:layout_margin="5dp">
     <ImageView
         android:id="@+id/cate_pic_home_rv_item"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/cate_name_home_rv_item"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/widget" />
 
@@ -20,17 +20,17 @@
         android:id="@+id/cate_name_home_rv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:paddingBottom="15dp"
-        android:textSize="25sp"
-        app:layout_constraintLeft_toLeftOf="@id/guide_item_home_rv_item"
+        android:gravity="center_vertical"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/guide_item_home_rv_item_cate"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="category" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_item_home_rv_item"
+        android:id="@+id/guide_item_home_rv_item_cate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="60dp" />
+        app:layout_constraintGuide_begin="50dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

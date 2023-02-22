@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycreamwallpaper.R
 
@@ -13,11 +14,11 @@ class DiscoverRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val TYPE_TITLE = 0
     }
 
-    class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class TitleViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val titleContent: TextView = view.findViewById(R.id.title_content_discover_rv_item)
     }
 
-    class ListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ListViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val recyclerView2: RecyclerView = view.findViewById(R.id.rv2_discover_rv_item)
     }
 
@@ -49,7 +50,8 @@ class DiscoverRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             else -> {
                 val newHold = holder as ListViewHolder
-
+                newHold.recyclerView2.adapter = DiscoverRv2Adapter()
+                newHold.recyclerView2.layoutManager = GridLayoutManager(holder.recyclerView2.context, 3)
             }
         }
     }
