@@ -7,8 +7,8 @@
     android:layout_margin="5dp">
     <ImageView
         android:id="@+id/title_icon_home_rv_item"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@color/teal_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:textSize="23sp"
+        android:textSize="25sp"
+        android:layout_marginLeft="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/guide_item_home_rv_item_title"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,5 +31,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="50dp" />
+        app:layout_constraintGuide_percent="0.1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

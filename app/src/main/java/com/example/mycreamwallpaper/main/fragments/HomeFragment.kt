@@ -6,9 +6,7 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams
 import android.view.WindowManager
-import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -58,8 +56,8 @@ class HomeFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        val recyclerView: RecyclerView = requireView().findViewById(R.id.frag_home_rv)
-        val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.frag_home_swipeRefresh)
+        val recyclerView: RecyclerView = requireView().findViewById(R.id.rv_frag_home)
+        val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.swipeRefresh_frag_home)
         recyclerView.adapter = HomeRvAdapter(picList)
 //        recyclerView.layoutManager = GridLayoutManager(context, 2)
         var col = (getScreenParam(0) / 400) * 2

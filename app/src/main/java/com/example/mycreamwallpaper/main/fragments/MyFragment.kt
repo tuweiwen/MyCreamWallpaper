@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mycreamwallpaper.R
+import com.example.mycreamwallpaper.main.fragments.adapters.MyRvAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +40,14 @@ class MyFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my, container, false)
     }
+
+    override fun onStart() {
+        super.onStart()
+        val rv: RecyclerView = requireView().findViewById(R.id.rv_frag_my)
+        rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        rv.adapter = MyRvAdapter()
+    }
+
 
     companion object {
         /**
