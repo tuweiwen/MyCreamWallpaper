@@ -3,6 +3,7 @@ package com.example.mycreamwallpaper.main.fragments.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycreamwallpaper.R
@@ -72,7 +73,9 @@ class MyRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             }
             else -> {
-
+                val rv = (holder as ToolsViewHolder).recyclerView
+                rv.layoutManager = GridLayoutManager(holder.itemView.context, 4, GridLayoutManager.VERTICAL, false)
+                rv.adapter = MyRvToolsRvAdapter()
             }
         }
     }
