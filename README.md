@@ -99,6 +99,21 @@
 
 ~~上面的问题明天也再问一下教练吧，应该可以再学习到一点（逃~~
 
+### 2月27日
+看了消息机制(`Handler`之类的)和一小部分事件分发(`TouchEvent`)的东东，感觉有点脑子不够用。消息处理这块儿感觉还是要再配上一点多线程相关的东西。但是说实话，写代码也有几千行了，还真的没有好好的尝试过写多线程的东东，感觉还是要自己再尝试一下。然后之后学习完的内容还是通过日记来画个提纲吧，以防自己忘记，定期复习起来应该会有不错的效果。~~（天知道能不能做到~~
+
+1. Event-Dispatch(md笔记)
+2. message-mechanism(md笔记)
+3. ThreadPool(Android进阶之光)
+4. tabLayout(setScrollPosition, addOnTabSelectedListener)
+5. RecyclerView(setOnScrollChangeListener, findFirstVisibleItemPosition, **smoothScrollToPosition**)
+ 
+最后那个`smoothScrollToPosition`简单的阅读了一下源码，但是还没有完全弄明白。但是这个的看起来已经比下午看的Handler什么的轻松太多了。争取明天再弄懂这个吧。
+
+今天其实总体还是可以的，但是依旧浪费了不少的时间，所以效率还是要继续提高一点。明天想看看网络框架方面(Rx和Retrofit之类的)，然后顺带加强一下多线程还有Kotlin的`coroutine`，挺重要的。（草，突然想起来之前看的扔物线的launchMode的视频还没有做总结，里面`singleTask`和`singleInstance`还是有点错乱...）
+
+晚上早睡早起吧，少玩手机（
+
 ---
 
 剩下的随缘补充...
