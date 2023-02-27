@@ -1,15 +1,18 @@
 package com.example.mycreamwallpaper.main.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.main.fragments.adapters.DiscoverRvAdapter
+import com.example.mycreamwallpaper.utils.LinearLayoutManagerWithScrollTop
+import com.google.android.material.tabs.TabLayout
+
 
 // Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,7 +41,6 @@ class DiscoverFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_discover, container, false)
     }
 
@@ -47,14 +49,34 @@ class DiscoverFragment : Fragment() {
 
         val recyclerView: RecyclerView = requireView().findViewById(R.id.frag_discover_rv)
         val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.frag_discover_swipeRefresh)
+        val tabLayout: TabLayout = requireView().findViewById(R.id.frag_discover_tab)
+
         recyclerView.adapter = DiscoverRvAdapter()
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
+        recyclerView.layoutManager = LinearLayoutManagerWithScrollTop(requireContext(), LinearLayoutManager.VERTICAL, false)
+        recyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
+            val firstPosition = (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+            if (firstPosition % 2 == 0) {
+                tabLayout.setScrollPosition((firstPosition / 2), 0F, true)
+            }
+        }
 
         swipeRefreshLayout.setOnRefreshListener {
             if (swipeRefreshLayout.isRefreshing) {
                 swipeRefreshLayout.isRefreshing = false
             }
         }
+
+        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                recyclerView.smoothScrollToPosition(tab?.position?.times(2) ?: 0)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
     }
 
     companion object {
