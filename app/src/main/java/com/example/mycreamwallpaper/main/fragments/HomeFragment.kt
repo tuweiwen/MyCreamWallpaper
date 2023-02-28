@@ -1,12 +1,9 @@
 package com.example.mycreamwallpaper.main.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -14,6 +11,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.bean.Pic
 import com.example.mycreamwallpaper.main.fragments.adapters.HomeRvAdapter
+import com.example.mycreamwallpaper.utils.DeviceUtils.Companion.getScreenParam
 
 
 // Rename parameter arguments, choose names that match
@@ -60,7 +58,7 @@ class HomeFragment : Fragment() {
         val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.swipeRefresh_frag_home)
         recyclerView.adapter = HomeRvAdapter(picList)
 //        recyclerView.layoutManager = GridLayoutManager(context, 2)
-        var col = (getScreenParam(0) / 400) * 2
+        var col = (getScreenParam(requireContext(),0) / 400) * 2
         if (col > 4) col = 4
         recyclerView.layoutManager = StaggeredGridLayoutManager(col, StaggeredGridLayoutManager.VERTICAL)
 
@@ -90,22 +88,4 @@ class HomeFragment : Fragment() {
                 }
             }
     }
-
-    // usage -> https://www.jianshu.com/p/e0085b03a145
-    fun getScreenParam(type: Int): Int {
-        val wm = requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val dm = DisplayMetrics()
-        wm.defaultDisplay.getMetrics(dm)
-        val width = dm.widthPixels // 屏幕宽度（像素）
-        val height = dm.heightPixels // 屏幕高度（像素）
-        val density = dm.density // 屏幕密度（0.75 / 1.0 / 1.5）
-        val screenWidth = (width / density).toInt() // 屏幕宽度(dp)
-        val screenHeight = (height / density).toInt() // 屏幕高度(dp)
-        when (type) {
-            0 -> return screenWidth
-            1 -> return screenHeight
-            else -> return 0
-        }
-    }
-
 }

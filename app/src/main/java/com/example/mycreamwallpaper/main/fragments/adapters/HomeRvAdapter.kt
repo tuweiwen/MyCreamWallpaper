@@ -1,5 +1,6 @@
 package com.example.mycreamwallpaper.main.fragments.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,27 +11,30 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mycreamwallpaper.R
+import com.example.mycreamwallpaper.activity.PicsDetailActivity
 import com.example.mycreamwallpaper.bean.Pic
-class HomeRvAdapter(var picList: ArrayList<Pic>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+import com.example.mycreamwallpaper.utils.ViewUtils.Companion.getActivityFromView
+
+class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
         val TYPE_CATEGORY = 1
         val TYPE_ITEM = 2
         val TYPE_TITLE = 3
     }
 
-    class CategoryViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val catePic: ImageView = view.findViewById(R.id.cate_pic_home_rv_item)
         val cateName: TextView = view.findViewById(R.id.cate_name_home_rv_item)
         val cateView: ConstraintLayout = view.findViewById(R.id.item_home_rv_cate)
     }
 
-    class ItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val wallpaperPic: ImageView = view.findViewById(R.id.wallpaper_home_rv_item)
         val wallpaperContent: TextView = view.findViewById(R.id.wallpaper_home_rv_item_content)
         val wallpaperView: ConstraintLayout = view.findViewById(R.id.item_home_rv_item)
     }
 
-    class TitleViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleIcon: ImageView = view.findViewById(R.id.title_icon_home_rv_item)
         val titleContent: TextView = view.findViewById(R.id.title_name_home_rv_item)
     }
@@ -102,7 +106,8 @@ class HomeRvAdapter(var picList: ArrayList<Pic>): RecyclerView.Adapter<RecyclerV
                 titleIcon.setImageResource(R.color.teal_200)
                 titleContent.text = "hot"
             }
-            (newHolder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams).isFullSpan = true
+            (newHolder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams).isFullSpan =
+                true
         }
         else -> {
             val newHolder = holder as ItemViewHolder
@@ -115,7 +120,10 @@ class HomeRvAdapter(var picList: ArrayList<Pic>): RecyclerView.Adapter<RecyclerV
                 wallpaperPic.layoutParams.height = (500..800).random()
                 wallpaperContent.text = sb.toString()
                 wallpaperView.setOnClickListener {
-                    Toast.makeText(it.context, "clicked wallpaper item ${position-5}", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(it.context, "clicked wallpaper item ${position-5}", Toast.LENGTH_SHORT).show()
+//                    Log.d("adapter", "result is ${getActivityFromView(itemView)}")
+                    it.context.startActivity(Intent(it.context, PicsDetailActivity::class.java))
+                    getActivityFromView(itemView)?.overridePendingTransition(R.anim.slide_in_from_right,R.anim.slide_out_to_left)
                 }
             }
         }
@@ -125,7 +133,7 @@ class HomeRvAdapter(var picList: ArrayList<Pic>): RecyclerView.Adapter<RecyclerV
 
     override fun getItemViewType(position: Int): Int = when {
         position <= 3 -> TYPE_CATEGORY
-        position == 4 ->  TYPE_TITLE
+        position == 4 -> TYPE_TITLE
         else -> TYPE_ITEM
     }
 }

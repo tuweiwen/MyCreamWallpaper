@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyCreamWallpaper"
         tools:targetApi="31">
         <activity
+            android:name=".activity.PicsDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
