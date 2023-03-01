@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.activity.PicsDetailActivity
 import com.example.mycreamwallpaper.bean.Pic
-import com.example.mycreamwallpaper.utils.ViewUtils.Companion.getActivityFromView
 
 class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
@@ -120,10 +119,9 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
                 wallpaperPic.layoutParams.height = (500..800).random()
                 wallpaperContent.text = sb.toString()
                 wallpaperView.setOnClickListener {
-//                    Toast.makeText(it.context, "clicked wallpaper item ${position-5}", Toast.LENGTH_SHORT).show()
-//                    Log.d("adapter", "result is ${getActivityFromView(itemView)}")
                     it.context.startActivity(Intent(it.context, PicsDetailActivity::class.java))
-                    getActivityFromView(itemView)?.overridePendingTransition(R.anim.slide_in_from_right,R.anim.slide_out_to_left)
+//                    Toast.makeText(it.context, "clicked wallpaper item ${position-5}", Toast.LENGTH_SHORT).show()
+//                    getActivityFromView(itemView)?.overridePendingTransition(R.anim.slide_in_from_right,R.anim.slide_out_to_left)
                 }
             }
         }
