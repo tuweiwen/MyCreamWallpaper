@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.bean.Pic
-import com.example.mycreamwallpaper.main.fragments.adapters.HomeRvAdapter
+import com.example.mycreamwallpaper.adapters.HomeRvAdapter
 import com.example.mycreamwallpaper.utils.DeviceUtils.Companion.getScreenParam
 
 

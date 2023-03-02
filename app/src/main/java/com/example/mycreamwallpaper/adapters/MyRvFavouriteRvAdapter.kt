@@ -1,4 +1,4 @@
-package com.example.mycreamwallpaper.main.fragments.adapters
+package com.example.mycreamwallpaper.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -26,10 +26,10 @@ class MyRvFavouriteRvAdapter(): RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = when(viewType) {
         TYPE_ITEM -> {
-            ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_my_rv_favourite_item, parent, false))
+            ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_my_rv_favourites_item, parent, false))
         }
         else -> {
-            MoreViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_my_rv_favourite_more, parent, false))
+            MoreViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_my_rv_favourites_more, parent, false))
         }
     }
 

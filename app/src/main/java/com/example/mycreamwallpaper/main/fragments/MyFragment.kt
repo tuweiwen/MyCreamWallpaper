@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycreamwallpaper.R
-import com.example.mycreamwallpaper.main.fragments.adapters.MyRvAdapter
+import com.example.mycreamwallpaper.adapters.MyRvAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mycreamwallpaper.R
-import com.example.mycreamwallpaper.main.fragments.adapters.DiscoverRvAdapter
+import com.example.mycreamwallpaper.adapters.DiscoverRvAdapter
 import com.example.mycreamwallpaper.utils.LinearLayoutManagerWithScrollTop
 import com.google.android.material.tabs.TabLayout
 

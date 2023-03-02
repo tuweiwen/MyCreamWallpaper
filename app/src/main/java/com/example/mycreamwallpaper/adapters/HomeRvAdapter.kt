@@ -1,4 +1,4 @@
-package com.example.mycreamwallpaper.main.fragments.adapters
+package com.example.mycreamwallpaper.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
