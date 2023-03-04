@@ -121,7 +121,6 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
                 wallpaperView.setOnClickListener {
                     it.context.startActivity(Intent(it.context, PicsDetailActivity::class.java))
 //                    Toast.makeText(it.context, "clicked wallpaper item ${position-5}", Toast.LENGTH_SHORT).show()
-//                    getActivityFromView(itemView)?.overridePendingTransition(R.anim.slide_in_from_right,R.anim.slide_out_to_left)
                 }
             }
         }

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right)
+//        overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if ((System.currentTimeMillis() - exitTime) > 2000) {
-        Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-        exitTime = System.currentTimeMillis();
-    } else
-        finish();
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else
+            finish();
     }
 }
