@@ -1,6 +1,7 @@
 package com.example.mycreamwallpaper.main
 
 import android.os.Bundle
+import android.transition.Fade
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,14 +14,18 @@ import com.example.mycreamwallpaper.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
 
     private var exitTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+        val fade = Fade()
+        window.enterTransition = fade
+        window.exitTransition = fade
+
         setContentView(binding.root)
 
         val mainFragment =
@@ -36,8 +41,8 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if ((System.currentTimeMillis() - exitTime) > 2000) {
             Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
-            exitTime = System.currentTimeMillis();
+            exitTime = System.currentTimeMillis()
         } else
-            finish();
+            finish()
     }
 }

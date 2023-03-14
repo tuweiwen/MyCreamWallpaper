@@ -1,16 +1,22 @@
 package com.example.mycreamwallpaper.main.fragments
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mycreamwallpaper.R
-import com.example.mycreamwallpaper.bean.Pic
+import com.example.mycreamwallpaper.activity.SearchActivity
 import com.example.mycreamwallpaper.adapters.HomeRvAdapter
+import com.example.mycreamwallpaper.bean.Pic
 import com.example.mycreamwallpaper.utils.DeviceUtils.Companion.getScreenParam
 
 
@@ -33,13 +39,15 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
         picList = arrayListOf()
         picList.let { it ->
-            for(i in 0..(10..20).random()) it += Pic()
+            for (i in 0..(10..20).random()) it += Pic()
         }
     }
 
@@ -55,17 +63,32 @@ class HomeFragment : Fragment() {
         super.onStart()
 
         val recyclerView: RecyclerView = requireView().findViewById(R.id.rv_frag_home)
-        val swipeRefreshLayout: SwipeRefreshLayout = requireView().findViewById(R.id.swipeRefresh_frag_home)
+        val swipeRefreshLayout: SwipeRefreshLayout =
+            requireView().findViewById(R.id.swipeRefresh_frag_home)
+        val edit: EditText = requireView().findViewById(R.id.search_frag_home)
+
         recyclerView.adapter = HomeRvAdapter(picList)
-//        recyclerView.layoutManager = GridLayoutManager(context, 2)
-        var col = (getScreenParam(requireContext(),0) / 400) * 2
-        if (col > 4) col = 4
-        recyclerView.layoutManager = StaggeredGridLayoutManager(col, StaggeredGridLayoutManager.VERTICAL)
+
+//      code below will take bug, need to consider other way to calculate col
+//        var col = (getScreenParam(requireContext(),0) / 400) * 2
+//        if (col > 4) col = 4
+//        recyclerView.layoutManager = StaggeredGridLayoutManager(col, StaggeredGridLayoutManager.VERTICAL)
+
+        Log.d("HomeFragment", "screenParam ${getScreenParam(requireContext(), 0) / 400}")
+        recyclerView.layoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         swipeRefreshLayout.setOnRefreshListener {
             if (swipeRefreshLayout.isRefreshing) {
                 swipeRefreshLayout.isRefreshing = false
             }
+        }
+
+        edit.setOnClickListener {
+            val options = ViewCompat.getTransitionName(edit)?.let { it1 ->
+                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), edit, it1)
+            }
+            startActivity(Intent(context, SearchActivity::class.java), options?.toBundle())
         }
     }
 

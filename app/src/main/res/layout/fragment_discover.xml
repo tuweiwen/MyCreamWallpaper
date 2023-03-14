@@ -11,52 +11,57 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="5dp"
-        android:background="@drawable/frag_home_search_shape"
+        android:background="@drawable/ic_frag_home_search_shape"
         android:drawableLeft="@mipmap/search"
         android:drawablePadding="5dp"
         android:gravity="center_vertical"
-        android:hint="search wallpaper here!"
+        android:hint="search here"
         android:imeOptions="actionSearch"
         android:padding="10dp"
         android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/frag_discover_tab"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/frag_discover_tab"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/frag_discover_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/frag_discover_search"
         app:layout_constraintBottom_toTopOf="@id/frag_discover_swipeRefresh"
-        app:tabMode="fixed">
+        app:layout_constraintTop_toBottomOf="@id/frag_discover_search"
+        app:tabMode="fixed"
+        app:tabRippleColor="@null">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="hot" />
+
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="avatar"/>
+            android:text="avatar" />
+
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="wallpaper"/>
+            android:text="wallpaper" />
+
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="background"/>
+            android:text="background" />
+
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="meme"/>
+            android:text="meme" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

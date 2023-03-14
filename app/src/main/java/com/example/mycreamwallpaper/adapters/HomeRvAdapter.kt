@@ -102,7 +102,6 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
         position == 4 -> {
             val newHolder = holder as TitleViewHolder
             with(newHolder) {
-                titleIcon.setImageResource(R.color.teal_200)
                 titleContent.text = "hot"
             }
             (newHolder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams).isFullSpan =

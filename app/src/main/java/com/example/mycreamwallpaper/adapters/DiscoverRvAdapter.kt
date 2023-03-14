@@ -3,6 +3,7 @@ package com.example.mycreamwallpaper.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,11 +15,12 @@ class DiscoverRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         val TYPE_TITLE = 0
     }
 
-    class TitleViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val titleIcon: ImageView = view.findViewById(R.id.title_icon_discover_rv_item)
         val titleContent: TextView = view.findViewById(R.id.title_content_discover_rv_item)
     }
 
-    class ListViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class ListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val recyclerView2: RecyclerView = view.findViewById(R.id.rv2_discover_rv_item)
     }
 
@@ -40,18 +42,34 @@ class DiscoverRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when (getItemViewType(position)) {
             TYPE_TITLE -> {
                 val newHolder = holder as TitleViewHolder
-                newHolder.titleContent.text = when (position) {
-                    0 -> "hot"
-                    2 -> "avatar"
-                    4 -> "wallpaper"
-                    6 -> "background"
-                    else -> "meme"
+                when (position) {
+                    0 -> {
+                        newHolder.titleContent.text = "hot"
+                        newHolder.titleIcon.setImageResource(R.drawable.ic_hot)
+                    }
+                    2 -> {
+                        newHolder.titleContent.text = "avatar"
+                        newHolder.titleIcon.setImageResource(R.mipmap.avatar)
+                    }
+                    4 -> {
+                        newHolder.titleContent.text = "wallpaper"
+                        newHolder.titleIcon.setImageResource(R.drawable.ic_wallpaper)
+                    }
+                    6 -> {
+                        newHolder.titleContent.text = "background"
+                        newHolder.titleIcon.setImageResource(R.drawable.ic_background)
+                    }
+                    else -> {
+                        newHolder.titleContent.text = "meme"
+                        newHolder.titleIcon.setImageResource(R.drawable.ic_meme)
+                    }
                 }
             }
             else -> {
                 val newHold = holder as ListViewHolder
                 newHold.recyclerView2.adapter = DiscoverRv2Adapter()
-                newHold.recyclerView2.layoutManager = GridLayoutManager(holder.recyclerView2.context, 3)
+                newHold.recyclerView2.layoutManager =
+                    GridLayoutManager(holder.recyclerView2.context, 3)
             }
         }
     }
