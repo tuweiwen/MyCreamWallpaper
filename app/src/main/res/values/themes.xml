@@ -34,4 +34,21 @@
         <item name="android:layout_width">match_parent</item>
         <item name="actionMenuTextColor">#000</item>
     </style>
+
+    <style name="DialogMore">
+        <!--透明背景可使用 @android:color/transparent -->
+        <item name="android:windowBackground">@color/white</item>
+        <!--Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@android:color/transparent</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--背景是否模糊显示-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="TabLayoutTextSize">
+        <item name="android:textSize">@dimen/textSize</item>
+    </style>
 </resources>

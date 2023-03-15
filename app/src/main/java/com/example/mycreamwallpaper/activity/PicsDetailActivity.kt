@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.mycreamwallpaper.MyDialogFragment
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.adapters.PicsDetailAdapter
 
@@ -31,13 +32,17 @@ class PicsDetailActivity : AppCompatActivity() {
         favouriteBtn.setOnClickListener {
             Toast.makeText(this, "you click favorite button!", Toast.LENGTH_SHORT).show()
         }
+
         moreBtn.setOnClickListener {
-            Toast.makeText(this, "you click more button!", Toast.LENGTH_SHORT).show()
+            val dialog = MyDialogFragment()
+            // set cancelable should in DialogFragment class!
+            dialog.show(supportFragmentManager, "moreDialog")
         }
 
         toolbar.setNavigationOnClickListener {
             finish()
         }
+
         swipeRefresh.setOnRefreshListener {
             if (swipeRefresh.isRefreshing) {
                 swipeRefresh.isRefreshing = false

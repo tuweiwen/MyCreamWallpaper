@@ -323,6 +323,26 @@ Git的Merge和Rebase的目的都是为了合并分支，但是并没有完全的
 
 *早点睡吧zZ...*
 
+### 3月14日
+上午上课的时候主要看MyBatis的内容去了，下午睡了一觉起来之后就去倒腾了一下Serveless，有点上手了，但是还没有搞清楚怎么读取API网关的内容，RESTfull的请求怎么去做也没想清楚。不过有一点苗头了，应该也是好事一件。如果能成功的话，简历上应该可以加上一笔（不过貌似又是再挖坑...所以还是先好好把UI和逻辑部分写好吧，网络部分之后再说x）
+
+晚上开始重新捡起了之前的项目，把搜索页面简单的写了一下，做了一个共享元素切换。效果还不错，主要是需要在两个Activity之间首先添加`window.enterTransition()`和`window.exitTransition()`，然后对两个xml中的元素添加`android:transitionName`属性，之后去需要进行切换的起始页面中调用`ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElement, sharedElementName)`，最后使用`startActivity()`即可。
+
+之后发现在第二个Activity中直接调用`finish()`是没有动画的，后面查到了`finishAfterTransition()`可以满足需求。
+
+再一个发现，就是Theme中对于很多View组件有外观的定义，可以通过自定义其中的一些属性并应用到当前的`themes.xml`就可以了。不过自己实在是弄不懂中间那么多的属性，目前还是只能靠查别人写好了的，然后直接贴上去。今天就是通过这样的方法去修改了toolbar中navigationIcon的右边距，使得serachActivity中间的EditText宽度变大一点。而且toolbar中间也可以再嵌套一个ConstraintLayout，这样就可以让右边的元素尽可能的看起来整齐一些。
+
+最后就是不知道searchActivity中的热门搜索部分怎么写比较好。第一反应是用RecyclerView，但是感觉不太对。不过没有再尝试，毕竟也挺晚了，就干脆明天早上再说吧。
+
+突然想起来，还有一个地方：需要在启动Activity后自动弹出输入法。这个其实也挺重要的，网上目前看到的一些部分貌似好像还解决不了，估计也得到时候再看看了。~~今天完全没有复习八股文的内容，有点愧疚...哎~~
+
+还是玩手机玩多了（瘫
+
+早睡早起吧，对身体好一些
+
+### 3月15日
+上午起来先看了一下昨天没有处理完的内容，思考了很久都没有处理掉的
+
 ---
 
 剩下的随缘补充...

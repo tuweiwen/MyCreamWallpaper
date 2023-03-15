@@ -6,6 +6,11 @@ import android.view.WindowManager
 
 class DeviceUtils {
     companion object {
+        const val SCREEN_WIDTH_DP = 0
+        const val SCREEN_HEIGHT_DP = 1
+        const val SCREEN_WIDTH_PX = 2
+        const val SCREEN_HEIGHT_PX = 3
+
         // usage -> https://www.jianshu.com/p/e0085b03a145
         @JvmStatic
         fun getScreenParam(mContext: Context, type: Int): Int {
@@ -18,8 +23,10 @@ class DeviceUtils {
             val screenWidth = (width / density).toInt() // 屏幕宽度(dp)
             val screenHeight = (height / density).toInt() // 屏幕高度(dp)
             return when (type) {
-                0 -> screenWidth
-                1 -> screenHeight
+                SCREEN_WIDTH_DP -> screenWidth
+                SCREEN_HEIGHT_DP -> screenHeight
+                SCREEN_WIDTH_PX -> width
+                SCREEN_HEIGHT_PX -> height
                 else -> 0
             }
         }
