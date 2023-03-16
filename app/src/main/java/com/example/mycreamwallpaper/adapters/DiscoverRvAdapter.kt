@@ -11,8 +11,8 @@ import com.example.mycreamwallpaper.R
 
 class DiscoverRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
-        val TYPE_LIST = 1
         val TYPE_TITLE = 0
+        val TYPE_LIST = 1
     }
 
     class TitleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -42,25 +42,26 @@ class DiscoverRvAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when (getItemViewType(position)) {
             TYPE_TITLE -> {
                 val newHolder = holder as TitleViewHolder
+                val holderContext = holder.itemView.context
                 when (position) {
                     0 -> {
-                        newHolder.titleContent.text = "hot"
+                        newHolder.titleContent.text = holderContext.getString(R.string.hot)
                         newHolder.titleIcon.setImageResource(R.drawable.ic_hot)
                     }
                     2 -> {
-                        newHolder.titleContent.text = "avatar"
+                        newHolder.titleContent.text = holderContext.getString(R.string.avatar)
                         newHolder.titleIcon.setImageResource(R.mipmap.avatar)
                     }
                     4 -> {
-                        newHolder.titleContent.text = "wallpaper"
+                        newHolder.titleContent.text = holderContext.getString(R.string.wallpaper)
                         newHolder.titleIcon.setImageResource(R.drawable.ic_wallpaper)
                     }
                     6 -> {
-                        newHolder.titleContent.text = "background"
+                        newHolder.titleContent.text = holderContext.getString(R.string.background)
                         newHolder.titleIcon.setImageResource(R.drawable.ic_background)
                     }
                     else -> {
-                        newHolder.titleContent.text = "meme"
+                        newHolder.titleContent.text = holderContext.getString(R.string.meme)
                         newHolder.titleIcon.setImageResource(R.drawable.ic_meme)
                     }
                 }

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginRight="10dp">
+    android:layout_marginEnd="10dp">
 
     <ImageView
         android:id="@+id/image_my_rv_favourite_rv"

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 
+// TODO: BUG - dialogFragment doesn't show fully after fitting navigationBar
 class MyDialogFragment : DialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -10,6 +10,7 @@
         android:id="@+id/toolbar_activity_pics_detail"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ToolbarRipple"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_back">
 
@@ -17,32 +18,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="pics detail"
-            android:textSize="20sp"/>
+            android:text="@string/pics_detail"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/more_toolbar_activity_pics_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/ic_more_horiz"/>
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_more_horiz" />
 
         <ImageView
             android:id="@+id/favorite_toolbar_activity_pics_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/ic_favorite"/>
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ic_favorite" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_activity_pics_detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_activity_pics_detail"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_activity_pics_detail">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_activity_pics_detail"
             android:layout_width="match_parent"

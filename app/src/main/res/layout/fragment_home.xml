@@ -1,54 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context=".main.fragments.HomeFragment">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/icon_frag_home"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="10dp"
-        android:src="@mipmap/cream"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="top"
+        android:padding="3dp"
+        tools:context=".main.fragments.HomeFragment">
 
-    <EditText
-        android:transitionName="search_transition"
-        android:id="@+id/search_frag_home"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/ic_frag_home_search_shape"
-        android:cursorVisible="false"
-        android:drawableLeft="@mipmap/search"
-        android:drawablePadding="5dp"
-        android:focusable="false"
-        android:gravity="center_vertical"
-        android:hint="search here"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:textIsSelectable="false"
-        app:layout_constraintLeft_toRightOf="@id/icon_frag_home"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/icon_frag_home"
+            android:layout_width="56dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:src="@mipmap/cream"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/search_frag_home"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_frag_home_search_shape"
+            android:cursorVisible="false"
+            android:drawableStart="@mipmap/search"
+            android:drawablePadding="5dp"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:hint="@string/search_here"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:textIsSelectable="false"
+            android:transitionName="search_transition"
+            app:layout_constraintLeft_toRightOf="@id/icon_frag_home"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh_frag_home"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon_frag_home">
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_frag_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -9,12 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.mycreamwallpaper.R
 
-
 class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var decorView = window.decorView
+
         val fade = Fade()
+//        fade.excludeTarget(decorView.findViewById(R.id.toolbar_activity_search), true)
+        fade.excludeTarget(android.R.id.statusBarBackground, true)
+        fade.excludeTarget(android.R.id.navigationBarBackground, true)
         window.enterTransition = fade
         window.exitTransition = fade
 

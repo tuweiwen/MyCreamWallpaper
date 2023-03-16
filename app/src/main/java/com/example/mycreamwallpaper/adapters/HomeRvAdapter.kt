@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.activity.PicsDetailActivity
 import com.example.mycreamwallpaper.bean.Pic
+import com.example.mycreamwallpaper.utils.DeviceUtils
 
 class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
@@ -44,7 +45,6 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
                 CategoryViewHolder(
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.item_home_rv_category, parent, false)
-
                 )
             TYPE_TITLE ->
                 TitleViewHolder(
@@ -62,7 +62,10 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
         position == 0 -> {
             val newHolder = holder as CategoryViewHolder
             with(newHolder) {
-                cateName.text = "category"
+                val layoutParams =
+                    this.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
+                layoutParams.setMargins(0, DeviceUtils.getPxFromDp(this.itemView.context, 10), 0, 0)
+                cateName.text = holder.itemView.context.getString(R.string.category)
                 catePic.setImageResource(R.mipmap.category)
                 cateView.setOnClickListener {
                     Toast.makeText(it.context, "clicked item $position", Toast.LENGTH_SHORT).show()
@@ -72,7 +75,10 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
         position == 1 -> {
             val newHolder = holder as CategoryViewHolder
             with(newHolder) {
-                cateName.text = "avatar"
+                val layoutParams =
+                    this.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
+                layoutParams.setMargins(0, DeviceUtils.getPxFromDp(this.itemView.context, 10), 0, 0)
+                cateName.text = this.itemView.context.getString(R.string.avatar_home)
                 catePic.setImageResource(R.mipmap.avatar)
                 cateView.setOnClickListener {
                     Toast.makeText(it.context, "clicked item $position", Toast.LENGTH_SHORT).show()
@@ -82,7 +88,7 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
         position == 2 -> {
             val newHolder = holder as CategoryViewHolder
             with(newHolder) {
-                cateName.text = "dynamic"
+                cateName.text = holder.itemView.context.getString(R.string.dynamic)
                 catePic.setImageResource(R.mipmap.dynamic)
                 cateView.setOnClickListener {
                     Toast.makeText(it.context, "clicked item $position", Toast.LENGTH_SHORT).show()
@@ -92,7 +98,7 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
         position == 3 -> {
             val newHolder = holder as CategoryViewHolder
             with(newHolder) {
-                cateName.text = "background"
+                cateName.text = holder.itemView.context.getString(R.string.background_home)
                 catePic.setImageResource(R.mipmap.background)
                 cateView.setOnClickListener {
                     Toast.makeText(it.context, "clicked item $position", Toast.LENGTH_SHORT).show()
@@ -102,7 +108,7 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
         position == 4 -> {
             val newHolder = holder as TitleViewHolder
             with(newHolder) {
-                titleContent.text = "hot"
+                titleContent.text = holder.itemView.context.getString(R.string.hot)
             }
             (newHolder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams).isFullSpan =
                 true
@@ -112,11 +118,13 @@ class HomeRvAdapter(var picList: ArrayList<Pic>) : RecyclerView.Adapter<Recycler
 //                newHolder.wallpaperPic.setImageResource()
             val sb: StringBuilder = StringBuilder()
             for (i in 0..(1..5).random()) {
-                sb.append("it's wallpaper content.")
+                sb.append(newHolder.itemView.context.getString(R.string.pic_content_default_short))
+//                sb.append("it's wallpaper content.")
             }
             with(newHolder) {
                 wallpaperPic.layoutParams.height = (500..800).random()
                 wallpaperContent.text = sb.toString()
+//                wallpaperContent.text = holder.itemView.context.getString(R.string.pic_content_default)
                 wallpaperView.setOnClickListener {
                     it.context.startActivity(Intent(it.context, PicsDetailActivity::class.java))
 //                    Toast.makeText(it.context, "clicked wallpaper item ${position-5}", Toast.LENGTH_SHORT).show()

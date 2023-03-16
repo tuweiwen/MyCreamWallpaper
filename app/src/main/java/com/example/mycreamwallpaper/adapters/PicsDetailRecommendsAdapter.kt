@@ -26,7 +26,7 @@ class PicsDetailRecommendsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHold
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val newHolder = holder as RecommendViewHolder
         newHolder.let {
-            it.title.text = "this is title"
+            it.title.text = holder.itemView.context.getString(R.string.pic_title_default)
             it.favouriteCount.text = "999"
         }
     }

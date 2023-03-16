@@ -21,8 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/guide_vertical_item_my_rv_tools"
         app:layout_constraintBottom_toTopOf="@id/guide_horizontal_item_my_rv_tools"
-        android:layout_marginLeft="5dp"
-        android:text="my tools"
+        android:layout_marginStart="5dp"
+        android:text="@string/my_tools"
         android:textSize="25sp"/>
 
     <androidx.constraintlayout.widget.Guideline

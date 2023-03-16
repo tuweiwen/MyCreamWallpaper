@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CreamWallpaper</string>
     <string name="pics_detail">pics detail</string>
     <string name="search_here">search here</string>
     <string name="search">search</string>
@@ -17,18 +17,5 @@
     <string name="my_tools">my tools</string>
     <string name="my_widget">my widget</string>
     <string name="related_recommends">related recommends</string>
-    <string name="pic_title_default">this is title</string>
-    <string name="pic_content_default">this is content, it\'s very loooooooooog.</string>
-    <string name="go_to_source">source ></string>
-    <string name="fav_count">favourite count: 100</string>
-    <string name="dynamic">dynamic</string>
-    <string name="category">category</string>
-    <string name="pic_content_default_short">it\'s wallpaper content.</string>
-    <string name="my">my</string>
-    <string name="discover">discover</string>
-    <string name="home">home</string>
     <string name="hot_search">hot search</string>
-    <string name="avatar_home">avatar</string>
-    <string name="background_home">background</string>
-    <!-- Remove or change this placeholder text -->
 </resources>

@@ -9,22 +9,21 @@
     <EditText
         android:id="@+id/frag_discover_search"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="5dp"
         android:background="@drawable/ic_frag_home_search_shape"
         android:drawableLeft="@mipmap/search"
         android:drawablePadding="5dp"
         android:gravity="center_vertical"
-        android:hint="search here"
+        android:hint="@string/search_here"
         android:imeOptions="actionSearch"
-        android:padding="10dp"
+        android:padding="8dp"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/frag_discover_tab"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    app:tabMode=""-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/frag_discover_tab"
         android:layout_width="match_parent"
@@ -32,7 +31,11 @@
         app:layout_constraintBottom_toTopOf="@id/frag_discover_swipeRefresh"
         app:layout_constraintTop_toBottomOf="@id/frag_discover_search"
         app:tabGravity="start"
+        app:tabBackground="@drawable/tablayout_bg_fragment_discover_selector"
+        app:tabIndicator="@null"
         app:tabMinWidth="1dp"
+        app:tabTextColor="@color/gray"
+        app:tabSelectedTextColor="@color/black"
         app:tabMode="scrollable"
         app:tabRippleColor="@null"
         app:tabTextAppearance="@style/TabLayoutTextSize">
@@ -41,31 +44,31 @@
             android:id="@+id/frag_discover_tab_item0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="hot" />
+            android:text="@string/hot" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="avatar" />
+            android:text="@string/avatar" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="wallpaper" />
+            android:text="@string/wallpaper" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="background" />
+            android:text="@string/background" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/frag_discover_tab_item4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="meme" />
+            android:text="@string/meme" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -4,11 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mycreamwallpaper.R
-import javax.microedition.khronos.opengles.GL
 
 class PicsDetailAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
@@ -76,10 +74,12 @@ class PicsDetailAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             TYPE_DESCRIBE -> {
                 val newHolder = holder as DescribeViewHolder
-                newHolder.title.text = "this is title"
-                newHolder.content.text = "this is content, it's very loooooooooog."
-                newHolder.favouriteCount.text = "favourite count: 100"
-                newHolder.source.text = "source >"
+                newHolder.title.text = holder.itemView.context.getString(R.string.pic_title_default)
+                newHolder.content.text =
+                    holder.itemView.context.getString(R.string.pic_content_default)
+                newHolder.favouriteCount.text =
+                    holder.itemView.context.getString(R.string.fav_count)
+                newHolder.source.text = holder.itemView.context.getString(R.string.go_to_source)
             }
             else -> {
                 val newHolder = holder as RecommendsViewHolder

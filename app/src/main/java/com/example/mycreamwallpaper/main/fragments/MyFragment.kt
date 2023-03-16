@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mycreamwallpaper.R
 import com.example.mycreamwallpaper.adapters.MyRvAdapter
 
-// TODO: Rename parameter arguments, choose names that match
+// TO-DO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -21,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class MyFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    // TO-DO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -58,7 +58,7 @@ class MyFragment : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment MyFragment.
          */
-        // TODO: Rename and change types and number of parameters
+        // TO-DO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             MyFragment().apply {
